@@ -1,5 +1,7 @@
 package Lab3;
 
+import java.util.Arrays;
+
 /*
 Created by Mohanad Shamsan 
 */
@@ -8,9 +10,15 @@ public class ArrayStack <E> implements IStack<E>{
     E[] array;
     static final int CAPACITY =100;
     int top=-1;
+    int length;
 
     public ArrayStack(int capacity) {
         array=(E[]) new Object[capacity];
+        length=array.length;
+    }
+
+    public int getLength() {
+        return length;
     }
 
     public ArrayStack() {
@@ -48,5 +56,12 @@ public class ArrayStack <E> implements IStack<E>{
     public E top() {
         if (isEmpty())return null;
         return array[top];
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "" + Arrays.toString(array) +
+                '}';
     }
 }
